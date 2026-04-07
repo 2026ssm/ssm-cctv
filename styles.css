@@ -1064,3 +1064,21 @@ p:last-child { margin-bottom: 0; }
   clip: rect(0,0,0,0);
   border: 0;
 }
+
+/* --- Process Icon (centered, uniform size) --- */
+.process-icon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.process-icon img {
+  max-width: 64px;
+  max-height: 64px;
+  width: auto;
+  height: auto;
+  display: block;
+}

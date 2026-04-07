@@ -5,9 +5,9 @@
 
 /* --- CSS Variables --- */
 :root {
-  --primary: #1a3a5c;
-  --primary-dark: #0f2640;
-  --primary-light: #2a5a8c;
+  --primary: #000080;
+  --primary-dark: #000050;
+  --primary-light: #0000b3;
   --accent: #e8a220;
   --accent-dark: #c78510;
   --dark: #111827;

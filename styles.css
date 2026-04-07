@@ -1082,3 +1082,14 @@ p:last-child { margin-bottom: 0; }
   height: auto;
   display: block;
 }
+
+/* --- Client Logo Links --- */
+.client-logos a {
+  color: var(--gray-700);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.client-logos a:hover {
+  color: var(--primary);
+}

@@ -1104,3 +1104,9 @@ p:last-child { margin-bottom: 0; }
 .client-logos a:hover {
   color: var(--primary);
 }
+
+/* --- Support page header fix --- */
+.site-header .logo-img {
+  height: 48px;
+  width: auto;
+}

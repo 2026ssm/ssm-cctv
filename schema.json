@@ -1,0 +1,48 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Security Systems & More",
+  "description": "Professional CCTV monitoring, security camera installation, and access control systems for Florida homes and businesses.",
+  "url": "https://securitysystemsandmore.com",
+  "telephone": "+1-561-693-2624",
+  "priceRange": "$$",
+  "image": "https://securitysystemsandmore.com/logo.png",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "6215 Georgia Ave., Suite i",
+    "addressLocality": "West Palm Beach",
+    "addressRegion": "FL",
+    "postalCode": "33405",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 26.6834,
+    "longitude": -80.0364
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "17:00"
+    }
+  ],
+  "areaServed": {
+    "@type": "State",
+    "name": "Florida"
+  },
+  "sameAs": [
+    "https://www.instagram.com/ssm_cctv/",
+    "https://www.facebook.com/ssmcctv",
+    "https://x.com/security_syst"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-877-547-2288",
+    "contactType": "customer support",
+    "availableLanguage": "English"
+  }
+}
+</script>

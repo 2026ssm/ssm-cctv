@@ -817,7 +817,7 @@ p:last-child { margin-bottom: 0; }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: var(--gray-400);
+  color: var(--white);
 }
 
 .form-note {
@@ -906,7 +906,7 @@ p:last-child { margin-bottom: 0; }
 /* --- Site Footer --- */
 .site-footer {
   background: var(--dark);
-  color: var(--gray-400);
+  color: var(--white);
   padding-top: 3rem;
 }
 
@@ -956,7 +956,7 @@ p:last-child { margin-bottom: 0; }
 }
 
 .footer-links a {
-  color: var(--gray-400);
+  color: var(--white);
   font-size: 0.9375rem;
   transition: color var(--transition);
 }
@@ -974,7 +974,7 @@ p:last-child { margin-bottom: 0; }
 }
 
 .footer-contact a {
-  color: var(--gray-400);
+  color: var(--white);
   transition: color var(--transition);
 }
 

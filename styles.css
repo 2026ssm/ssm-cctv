@@ -1138,18 +1138,16 @@ p:last-child { margin-bottom: 0; }
   color: var(--primary);
 }
 
+
 /* Client Logo Images */
 .trust-logo img {
-  max-height: 50px;
-  max-width: 120px;
+  height: 60px;
   width: auto;
-  height: auto;
+  max-width: 140px;
   object-fit: contain;
-  
-  opacity: 0.75;
-  transition: all 0.3s ease;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
 }
 .trust-logo:hover img {
-  
   opacity: 1;
 }

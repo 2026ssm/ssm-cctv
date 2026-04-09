@@ -1145,11 +1145,11 @@ p:last-child { margin-bottom: 0; }
   width: auto;
   height: auto;
   object-fit: contain;
-  filter: grayscale(100%);
+  
   opacity: 0.75;
   transition: all 0.3s ease;
 }
 .trust-logo:hover img {
-  filter: grayscale(0%);
+  
   opacity: 1;
 }

@@ -308,7 +308,7 @@ p:last-child { margin-bottom: 0; }
 .hero-inner {
   position: relative;
   z-index: 1;
-  padding: 5rem 0;
+  padding: 3rem 0;
 }
 
 .hero-content {
@@ -382,7 +382,7 @@ p:last-child { margin-bottom: 0; }
 
 /* --- Problem Section --- */
 .problem-section {
-  padding: 5rem 0;
+  padding: 3rem 0;
   background: var(--white);
 }
 
@@ -439,7 +439,7 @@ p:last-child { margin-bottom: 0; }
 
 /* --- Process Section --- */
 .process-section {
-  padding: 5rem 0;
+  padding: 3rem 0;
   background: var(--gray-100);
 }
 
@@ -483,7 +483,7 @@ p:last-child { margin-bottom: 0; }
 
 /* --- Differentiators --- */
 .diff-section {
-  padding: 5rem 0;
+  padding: 3rem 0;
   background: var(--white);
 }
 
@@ -519,7 +519,7 @@ p:last-child { margin-bottom: 0; }
 
 /* --- Testimonials --- */
 .testimonials-section {
-  padding: 5rem 0;
+  padding: 3rem 0;
   background: var(--gray-100);
 }
 
@@ -592,7 +592,7 @@ p:last-child { margin-bottom: 0; }
 
 /* --- CTA Section --- */
 .cta-section {
-  padding: 5rem 0;
+  padding: 3rem 0;
   background: linear-gradient(135deg, var(--primary-dark), var(--primary));
   color: var(--white);
   text-align: center;

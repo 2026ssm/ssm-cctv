@@ -1191,3 +1191,10 @@ p:last-child { margin-bottom: 0; }
   filter: grayscale(0%);
   opacity: 1;
 }
+
+/* Mobile hero image */
+@media (max-width: 767px) {
+  .hero-bg-image img {
+    content: url("hero-mobile.jpg");
+  }
+}

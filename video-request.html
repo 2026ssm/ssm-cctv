@@ -72,7 +72,8 @@
   }
 }
 </script>
-</head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  </head>
 <body>
 
   <!-- Navigation -->
@@ -469,6 +470,38 @@ window.addEventListener('load', function() {
   }
 });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Date picker with US format
+  flatpickr("#date", {
+    dateFormat: "m/d/Y",
+    altInput: true,
+    altFormat: "MM/DD/YYYY",
+    allowInput: true
+  });
+  
+  // Time pickers with 12-hour format
+  flatpickr("#start_time", {
+    enableTime: true,
+    noCalendar: true,
+    dateFormat: "h:i K",
+    altInput: true,
+    altFormat: "HH:MM AM",
+    time_24hr: false
+  });
+  
+  flatpickr("#end_time", {
+    enableTime: true,
+    noCalendar: true,
+    dateFormat: "h:i K",
+    altInput: true,
+    altFormat: "HH:MM AM",
+    time_24hr: false
+  });
+});
+</script>
+
 </body>
 </html>
 

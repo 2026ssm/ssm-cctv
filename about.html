@@ -269,33 +269,6 @@ var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(pc
 </script>
 <!-- End Pidj Chat Code -->
 
-<!-- Custom Chat Button - masks Broadvoice button -->
-<div id="chat-custom-btn" onclick="document.getElementById("chat-widget-btn").click()">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg>
-</div>
-
-
-
-<!-- Chat Button --><!-- Chat Button - triggers Broadvoice chat -->
-<!-- Chat Button --><!-- Chat Button - triggers Broadvoice chat -->
-<div id="chat-popup" onclick="try{document.getElementById("chat-widget-btn").click();}catch(e){try{document.querySelector("[class*=bubble]").click();}catch(e2){try{document.querySelector("iframe[src*=broadvoice]").click();}catch(e3){}}}}" style="
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, #0055a4, #003366);
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 9998;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease;
-  font-size: 1.75rem;
-">💬</div>
-
 <style>
 .chat-popup {
   position: fixed;

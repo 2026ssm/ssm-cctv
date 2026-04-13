@@ -1246,7 +1246,8 @@ p:last-child { margin-bottom: 0; }
 }
 
 /* Hide Broadvoice native button, show custom mask */
-#chat-widget-btn {
+/* Hide Broadvoice button */
+#chat-widget-btn, #chat-widget-btn iframe, #chat-widget-btn > * {
   opacity: 0 !important;
   pointer-events: none !important;
 }

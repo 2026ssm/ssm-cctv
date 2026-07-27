@@ -351,7 +351,7 @@
   
 
 <!-- Chat Popup Notification -->
-<div id="chat-popup" class="chat-popup" style="display:none; cursor: pointer;" onclick="if(typeof$Bubble !== 'undefined') $Bubble.show();">
+<div id="chat-popup" class="chat-popup" style="display:none; cursor: pointer;" onclick="try { if(typeof $Bubble !== 'undefined') $Bubble.show(); else if(typeof Bubble !== 'undefined') Bubble.show(); else window.open('https://bubble.broadvoice.com/chat/pc:20e048a5-22ce-5022-b786-1fc5341ee40c:aDxza', '_blank'); } catch(e) { console.log('Chat error'); }">
   <div class="chat-popup-content">
     <span class="chat-popup-close" onclick="closeChatPopup()">×</span>
     <div class="chat-popup-icon">💬</div>
@@ -365,7 +365,7 @@
 <style>
 .chat-popup {
   position: fixed;
-  bottom: 80px;
+  bottom: 20px;
   right: 20px;
   z-index: 9999;
   animation: slideUp 0.5s ease-out forwards;
@@ -440,7 +440,7 @@ var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(pc
 <style>
 .chat-popup {
   position: fixed;
-  bottom: 80px;
+  bottom: 20px;
   right: 20px;
   z-index: 9999;
   animation: slideUp 0.5s ease-out forwards;

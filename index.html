@@ -351,7 +351,7 @@
   
 
 <!-- Chat Popup Notification -->
-<div id="chat-popup" class="chat-popup" style="display:none; cursor: pointer;" onclick="window.location.href='https://bubble.broadvoice.com/chat/pc:20e048a5-22ce-5022-b786-1fc5341ee40c:aDxza'">
+<div id="chat-popup" class="chat-popup" style="display:none; cursor: pointer;" onclick="try { document.querySelector('a[href*=\"bubble.broadvoice\"]').click(); } catch(e) { try { document.querySelector('[class*=\"bubble\"]').click(); } catch(e2) { } }">
   <div class="chat-popup-content">
     <span class="chat-popup-close" onclick="closeChatPopup()">×</span>
     <div class="chat-popup-icon">💬</div>

@@ -351,7 +351,7 @@
   
 
 <!-- Chat Popup Notification -->
-<div id="chat-popup" class="chat-popup" style="display:none;">
+<div id="chat-popup" class="chat-popup" style="display:none; cursor: pointer;" onclick="if(typeof$Bubble !== 'undefined') $Bubble.show();">
   <div class="chat-popup-content">
     <span class="chat-popup-close" onclick="closeChatPopup()">×</span>
     <div class="chat-popup-icon">💬</div>

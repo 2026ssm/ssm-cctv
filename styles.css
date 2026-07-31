@@ -923,7 +923,7 @@ p:last-child { margin-bottom: 0; }
 
 /* --- Site Footer --- */
 .site-footer {
-  background: var(--primary);
+  background: var(--primary-dark);
   color: var(--white);
   padding-top: 3rem;
 }

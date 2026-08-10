@@ -258,6 +258,13 @@ var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(pc
 </script>
 <!-- End Pidj Chat Code -->
 
+<script>
+// Hide Broadvoice default button after it loads
+function hidePidjBtn(){var e=document.getElementById('pidj-opener');if(e){e.style.cssText='display:none !important;opacity:0 !important;visibility:hidden !important;pointer-events:none !important;';}}
+var obs=new MutationObserver(function(muts){for(var i=0;i<muts.length;i++){for(var j=0;j<muts[i].addedNodes.length;j++){if(muts[i].addedNodes[j].id==='pidj-opener'||(muts[i].addedNodes[j].querySelector&&muts[i].addedNodes[j].querySelector('#pidj-opener'))){hidePidjBtn();}}}});obs.observe(document.body,{childList:true,subtree:true});
+setTimeout(hidePidjBtn,500);setTimeout(hidePidjBtn,1500);setTimeout(hidePidjBtn,3000);
+</script>
+
 <!-- Custom Chat Button - covers Broadvoice default icon -->
 <div id="chat-custom-btn" onclick="if(typeof PidjOpener!=='undefined'){PidjOpener.Open();}else{var e=document.getElementById('pidj-opener');if(e){var img=e.querySelector('img');if(img){img.click();}}}">
   <img src="images/chat-icon.png" alt="Chat with us">

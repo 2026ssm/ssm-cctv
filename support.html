@@ -368,6 +368,8 @@ var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(pc
 function hidePidjBtn(){var e=document.getElementById('pidj-opener');if(e){e.style.cssText='display:none !important;opacity:0 !important;visibility:hidden !important;pointer-events:none !important;';}}
 var obs=new MutationObserver(function(muts){for(var i=0;i<muts.length;i++){for(var j=0;j<muts[i].addedNodes.length;j++){if(muts[i].addedNodes[j].id==='pidj-opener'||(muts[i].addedNodes[j].querySelector&&muts[i].addedNodes[j].querySelector('#pidj-opener'))){hidePidjBtn();}}}});obs.observe(document.body,{childList:true,subtree:true});
 setTimeout(hidePidjBtn,500);setTimeout(hidePidjBtn,1500);setTimeout(hidePidjBtn,3000);
+// Bounce in chat button after 1.5s
+setTimeout(function(){var b=document.getElementById('chat-custom-btn');if(b){b.classList.add('chat-bounce-in');}},1500);
 </script>
 
 <!-- Custom Chat Button - covers Broadvoice default icon -->

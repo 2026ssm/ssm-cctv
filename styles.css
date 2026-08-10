@@ -1217,7 +1217,7 @@ p:last-child { margin-bottom: 0; }
   }
 }
 
-/* Custom chat button overlay - covers Broadvoice default icon */
+/* Custom chat button */
 #chat-custom-btn {
   position: fixed;
   bottom: 20px;
@@ -1227,13 +1227,13 @@ p:last-child { margin-bottom: 0; }
   cursor: pointer;
   z-index: 99999;
   transition: transform 0.3s ease;
-  overflow: visible;
+  border: none;
+  background: none;
 }
 
 #chat-custom-btn img {
   width: 100%;
   height: 100%;
-  object-fit: fill;
   display: block;
 }
 
@@ -1243,10 +1243,7 @@ p:last-child { margin-bottom: 0; }
 
 /* Hide Broadvoice native button completely */
 #pidj-opener,
-#chat-widget-btn,
-#chat-widget-btn iframe,
-#chat-widget-btn > div,
-#chat-widget-btn > *,
+#pidj-opener img,
 [class*="bubble-"],
 [class*="broadvoice"] {
   opacity: 0 !important;

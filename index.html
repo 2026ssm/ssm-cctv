@@ -361,7 +361,7 @@
   <!-- End Pidj Chat Code -->
 
   <!-- Custom Chat Button - covers Broadvoice default icon -->
-  <div id="chat-custom-btn" onclick="document.getElementById('chat-widget-btn').click()">
+  <div id="chat-custom-btn" onclick="if(typeof PidjOpener!=='undefined'){PidjOpener.Open();}else{var e=document.getElementById('pidj-opener');if(e){var img=e.querySelector('img');if(img){img.click();}}}">
     <img src="images/chat-icon.png" alt="Chat with us">
   </div>
 </body>

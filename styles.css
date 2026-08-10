@@ -1222,10 +1222,10 @@ p:last-child { margin-bottom: 0; }
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 160px;
-  height: 100px;
+  width: 240px;
+  height: 150px;
   cursor: pointer;
-  z-index: 9998;
+  z-index: 9999;
   transition: transform 0.3s ease;
   overflow: hidden;
 }
@@ -1242,6 +1242,7 @@ p:last-child { margin-bottom: 0; }
 }
 
 /* Hide Broadvoice native button completely */
+#pidj-opener,
 #chat-widget-btn,
 #chat-widget-btn iframe,
 #chat-widget-btn > div,
@@ -1251,11 +1252,4 @@ p:last-child { margin-bottom: 0; }
   opacity: 0 !important;
   pointer-events: none !important;
   display: none !important;
-}
-
-/* Chat popup icon - use custom image instead of emoji */
-.chat-popup-icon img {
-  width: 48px;
-  height: 48px;
-  border-radius: 8px;
 }

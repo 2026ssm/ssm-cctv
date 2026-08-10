@@ -1217,75 +1217,45 @@ p:last-child { margin-bottom: 0; }
   }
 }
 
-/* Custom chat button overlay to mask the original widget */
+/* Custom chat button overlay - covers Broadvoice default icon */
 #chat-custom-btn {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, #0055a4, #003366);
-  border-radius: 50%;
+  width: 160px;
+  height: 100px;
   cursor: pointer;
   z-index: 9998;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
   transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+#chat-custom-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 #chat-custom-btn:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
-#chat-custom-btn svg {
-  width: 32px;
-  height: 32px;
-  fill: white;
-}
-
-/* Hide Broadvoice native button, show custom mask */
-/* Hide Broadvoice button */
-#chat-widget-btn, #chat-widget-btn iframe, #chat-widget-btn > * {
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
-
-#chat-custom-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, #0055a4, #003366);
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 9998;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease;
-}
-
-#chat-custom-btn:hover {
-  transform: scale(1.1);
-}
-
-#chat-custom-btn svg {
-  width: 32px;
-  height: 32px;
-  fill: white;
-}
-
-/* Hide Broadvoice widget button completely */
-#chat-widget-btn, 
-#chat-widget-btn iframe, 
+/* Hide Broadvoice native button completely */
+#chat-widget-btn,
+#chat-widget-btn iframe,
 #chat-widget-btn > div,
+#chat-widget-btn > *,
 [class*="bubble-"],
 [class*="broadvoice"] {
   opacity: 0 !important;
   pointer-events: none !important;
   display: none !important;
+}
+
+/* Chat popup icon - use custom image instead of emoji */
+.chat-popup-icon img {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
 }

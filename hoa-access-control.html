@@ -349,7 +349,7 @@
 <div id="chat-popup" class="chat-popup" style="display:none;">
   <div class="chat-popup-content">
     <span class="chat-popup-close" onclick="closeChatPopup()">×</span>
-    <div class="chat-popup-icon">💬</div>
+    <div class="chat-popup-icon"><img src="images/chat-icon.png" alt="Chat with us"></div>
     <div class="chat-popup-text">
       <strong>Chat with us!</strong>
       <p>Have questions? We are here to help.</p>
@@ -431,6 +431,11 @@ var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(pc
 })();
 </script>
 <!-- End Pidj Chat Code -->
+
+<!-- Custom Chat Button - covers Broadvoice default icon -->
+<div id="chat-custom-btn" onclick="document.getElementById('chat-widget-btn').click()">
+  <img src="images/chat-icon.png" alt="Chat with us">
+</div>
 
 <style>
 .chat-popup {

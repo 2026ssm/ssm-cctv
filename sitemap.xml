@@ -61,6 +61,18 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://ssmcctv.com/service-areas</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ssmcctv.com/faq</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://ssmcctv.com/sms-privacy-policy</loc>
     <lastmod>2026-08-02</lastmod>
     <changefreq>yearly</changefreq>

@@ -29,15 +29,17 @@
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
+  "@id": "https://ssmcctv.com/#business",
   "name": "Security Systems & More",
   "description": "Professional CCTV monitoring, security camera installation, and access control systems for Florida homes and businesses.",
   "url": "https://ssmcctv.com",
   "telephone": "+1-561-693-2624",
   "priceRange": "$$",
   "image": "https://ssmcctv.com/logo.png",
+  "logo": "https://ssmcctv.com/logo.png",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "6215 Georgia Ave., Suite i",
+    "streetAddress": "6215 Georgia Ave., Suite I",
     "addressLocality": "West Palm Beach",
     "addressRegion": "FL",
     "postalCode": "33405",
@@ -56,9 +58,61 @@
       "closes": "17:00"
     }
   ],
-  "areaServed": {
-    "@type": "State",
-    "name": "Florida"
+  "areaServed": [
+    {
+      "@type": "AdministrativeArea",
+      "name": "Palm Beach County, FL"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Broward County, FL"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Martin County, FL"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "St. Lucie County, FL"
+    }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Security Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Security Camera Installation",
+          "description": "Professional CCTV and security camera installation for homes and businesses."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "CCTV Monitoring",
+          "description": "24/7 monitoring with proactive system health checks and alerts."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Access Control Systems",
+          "description": "Key card, fob, and keypad access control installation and management for HOAs and businesses."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Preventative Maintenance",
+          "description": "Scheduled maintenance to keep security systems running reliably."
+        }
+      }
+    ]
   },
   "sameAs": [
     "https://www.instagram.com/ssm_cctv/",
@@ -71,6 +125,78 @@
     "contactType": "customer support",
     "availableLanguage": "English"
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What areas does Security Systems & More serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We serve all of Palm Beach County, Broward County, Martin County, and St. Lucie County in South Florida. Our office is located in West Palm Beach, and our field technicians cover the entire four-county region."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you install security cameras for both homes and businesses?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We design, install, and monitor security camera systems for Florida homes, businesses, HOAs, and commercial properties. Every system is customized to the property's specific needs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does security camera installation cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pricing depends on the number of cameras, type of system, and property layout. We offer free security surveys and consultations to provide an accurate quote. Contact us at (561) 693-2624 to schedule."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer 24/7 monitoring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Our monitoring service actively watches your system health and alerts you before issues become problems. We know your system is down before you do."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you install access control systems for HOAs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We install and manage key card, fob, and keypad access control systems for HOAs, gated communities, and commercial buildings throughout Palm Beach, Broward, Martin, and St. Lucie counties."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a permit for security camera installation in Florida?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Permit requirements vary by city and county in South Florida. We are familiar with local code inspectors and handle permit requirements as part of our installation process."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if my security system stops working?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "With our monitoring service, we detect system issues proactively and often fix them before you even notice. For non-monitored systems, we offer repair services and preventative maintenance plans."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you monitor a system that another company installed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In many cases, yes. We can evaluate your existing system and determine if it can be integrated into our monitoring service. Contact us for a free assessment."
+      }
+    }
+  ]
 }
 </script>
 </head>
@@ -326,6 +452,8 @@
           <li><a href="services.html">Services</a></li>
           <li><a href="support.html">Support</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="service-areas.html">Service Areas</a></li>
+          <li><a href="faq.html">FAQ</a></li>
         </ul>
       </div>
       <div class="footer-contact">

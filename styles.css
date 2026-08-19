@@ -1142,9 +1142,14 @@ p:last-child { margin-bottom: 0; }
   }
 }
 
+.footer-brand {
+  text-align: center;
+}
+
 .footer-logo {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   margin-bottom: 0.75rem;
 }

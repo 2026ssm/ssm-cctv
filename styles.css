@@ -1412,13 +1412,26 @@ p:last-child { margin-bottom: 0; }
   opacity: 1;
 }
 
-/* Hide hero image on mobile - show solid background */
+/* Mobile hero adjustments */
 @media (max-width: 767px) {
-  .hero-bg-image {
-    display: none;
-  }
   .hero {
-    background: var(--primary-dark);
+    min-height: 400px;
+  }
+  .hero-slide img {
+    object-position: center;
+  }
+  .hero-heading {
+    font-size: 1.6rem;
+  }
+  .hero-sub {
+    font-size: 1rem;
+  }
+  .hero-content {
+    text-align: center;
+    margin: 0 auto;
+  }
+  .hero-ctas {
+    justify-content: center;
   }
 }
 

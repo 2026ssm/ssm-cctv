@@ -348,10 +348,7 @@
       result.className = 'port-result open';
       document.getElementById('resultIcon').textContent = '✅';
       document.getElementById('resultTitle').textContent = 'Port ' + port + ' is OPEN';
-      document.getElementById('resultDetail').innerHTML =
-        'Port ' + port + ' on ' + host + ' is accepting connections.<br><br>' +
-        'Your port forwarding appears to be working correctly.<br>' +
-        'You should be able to access your device remotely on this port.';
+      document.getElementById('resultDetail').innerHTML = '';
       document.getElementById('checkBtn').disabled = false;
     }
 

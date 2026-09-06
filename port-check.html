@@ -234,8 +234,7 @@
 <body>
 
   <div class="port-check-page">
-    <h1>Port Forwarding Check</h1>
-    <p class="subtitle">Verify your port forwarding is working correctly for remote access to your security system, NVR, or DVR.</p>
+    <p class="subtitle" style="margin-bottom: 1.5rem;">Verify your ports are open for remote access to your NVR or DVR.</p>
 
     <div class="your-ip" id="ipDisplay">Your IP address: <strong>Loading...</strong></div>
 
@@ -251,19 +250,6 @@
         </div>
         <div style="display: flex; align-items: flex-end;">
           <button class="check-btn" id="checkBtn" style="width: auto; white-space: nowrap;">Check Port</button>
-        </div>
-      </div>
-
-      <div style="margin-top: 0.75rem;">
-        <label style="font-size: 0.8rem; color: var(--gray-500);">Common ports for security systems:</label>
-        <div class="common-ports">
-          <button onclick="setPort(80)">80 (HTTP)</button>
-          <button onclick="setPort(443)">443 (HTTPS)</button>
-          <button onclick="setPort(554)">554 (RTSP)</button>
-          <button onclick="setPort(8000)">8000 (Hikvision)</button>
-          <button onclick="setPort(8080)">8080 (NVR Web)</button>
-          <button onclick="setPort(37777)">37777 (Dahua)</button>
-          <button onclick="setPort(37778)">37778 (Dahua TCP)</button>
         </div>
       </div>
     </div>
@@ -282,10 +268,6 @@
         <li><strong>Closed/Filtered</strong> — Port is not reachable, not forwarded, or blocked by a firewall</li>
       </ul>
       <p style="margin-top: 0.75rem;"><strong>Tip:</strong> Make sure your NVR/DVR is powered on and the port forwarding rule is active in your router before checking.</p>
-    </div>
-
-    <div class="back-link">
-      <a href="support.html">← Back to Support</a>
     </div>
   </div>
 

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Port Forwarding Check | Security Systems & More</title>
+  <meta name="description" content="Check if your port forwarding is working. Free online port checker tool from Security Systems & More.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .port-check-page {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+    .port-check-page h1 {
+      color: var(--primary);
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .port-check-page .subtitle {
+      text-align: center;
+      color: var(--gray-600);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    .port-check-form {
+      background: var(--gray-100);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .port-check-form label {
+      display: block;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 0.4rem;
+      font-size: 0.9rem;
+    }
+    .port-check-form .form-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    @media (max-width: 500px) {
+      .port-check-form .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+    .port-check-form input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 2px solid var(--gray-300);
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+      box-sizing: border-box;
+      transition: border-color 0.3s;
+    }
+    .port-check-form input:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    .port-check-form .port-input {
+      max-width: 120px;
+    }
+    .port-check-form .form-group {
+      margin-bottom: 1rem;
+    }
+    .port-check-form .check-btn {
+      width: 100%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border: none;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .port-check-form .check-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0,85,164,0.3);
+    }
+    .port-check-form .check-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .port-check-form .reset-btn {
+      background: none;
+      border: none;
+      color: var(--primary);
+      cursor: pointer;
+      font-size: 0.85rem;
+      padding: 0;
+      margin-top: 0.5rem;
+      text-decoration: underline;
+    }
+    .port-result {
+      display: none;
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      animation: slideUp 0.4s ease-out;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .port-result.open {
+      display: block;
+      background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+      border: 2px solid #4caf50;
+    }
+    .port-result.closed {
+      display: block;
+      background: linear-gradient(135deg, #ffebee, #ffcdd2);
+      border: 2px solid #f44336;
+    }
+    .port-result.checking {
+      display: block;
+      background: var(--gray-100);
+      border: 2px solid var(--gray-300);
+    }
+    .port-result .result-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .port-result .result-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .port-result.open .result-title { color: #2e7d32; }
+    .port-result.closed .result-title { color: #c62828; }
+    .port-result .result-detail {
+      color: var(--gray-600);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .port-info {
+      background: #e3f2fd;
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .port-info h3 {
+      color: var(--primary);
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .port-info p {
+      color: var(--gray-600);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+    }
+    .port-info ul {
+      color: var(--gray-600);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      padding-left: 1.25rem;
+    }
+    .common-ports {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+    .common-ports button {
+      background: white;
+      border: 1px solid var(--gray-300);
+      border-radius: 6px;
+      padding: 0.4rem 0.75rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+      color: var(--primary);
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .common-ports button:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    .spinner {
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      border: 3px solid var(--gray-300);
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 0.5rem;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .back-link {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+    .back-link a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+    .your-ip {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--gray-500);
+      margin-bottom: 1.5rem;
+    }
+    .your-ip strong {
+      color: var(--primary);
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="port-check-page">
+    <h1>Port Forwarding Check</h1>
+    <p class="subtitle">Verify your port forwarding is working correctly for remote access to your security system, NVR, or DVR.</p>
+
+    <div class="your-ip" id="ipDisplay">Your IP address: <strong>Loading...</strong></div>
+
+    <div class="port-check-form">
+      <div class="form-group">
+        <label for="checkHost">IP Address or Domain</label>
+        <input type="text" id="checkHost" placeholder="Your public IP (auto-filled)">
+      </div>
+      <div class="form-row">
+        <div>
+          <label for="checkPort">Port Number</label>
+          <input type="number" id="checkPort" class="port-input" placeholder="e.g. 80" value="80" min="1" max="65535">
+        </div>
+        <div style="display: flex; align-items: flex-end;">
+          <button class="check-btn" id="checkBtn" style="width: auto; white-space: nowrap;">Check Port</button>
+        </div>
+      </div>
+
+      <div style="margin-top: 0.75rem;">
+        <label style="font-size: 0.8rem; color: var(--gray-500);">Common ports for security systems:</label>
+        <div class="common-ports">
+          <button onclick="setPort(80)">80 (HTTP)</button>
+          <button onclick="setPort(443)">443 (HTTPS)</button>
+          <button onclick="setPort(554)">554 (RTSP)</button>
+          <button onclick="setPort(8000)">8000 (Hikvision)</button>
+          <button onclick="setPort(8080)">8080 (NVR Web)</button>
+          <button onclick="setPort(37777)">37777 (Dahua)</button>
+          <button onclick="setPort(37778)">37778 (Dahua TCP)</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="port-result" id="portResult">
+      <div class="result-icon" id="resultIcon"></div>
+      <div class="result-title" id="resultTitle"></div>
+      <div class="result-detail" id="resultDetail"></div>
+    </div>
+
+    <div class="port-info">
+      <h3>How This Works</h3>
+      <p>This tool attempts to connect to the specified port from your browser. Results indicate whether the port is accepting connections from the outside.</p>
+      <ul>
+        <li><strong>Open</strong> — Port is reachable and accepting connections</li>
+        <li><strong>Closed/Filtered</strong> — Port is not reachable, not forwarded, or blocked by a firewall</li>
+      </ul>
+      <p style="margin-top: 0.75rem;"><strong>Tip:</strong> Make sure your NVR/DVR is powered on and the port forwarding rule is active in your router before checking.</p>
+    </div>
+
+    <div class="back-link">
+      <a href="support.html">← Back to Support</a>
+    </div>
+  </div>
+
+  <script>
+    var userIP = '';
+
+    // Fetch user's public IP automatically
+    fetch('https://api.ipify.org?format=json')
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        userIP = data.ip;
+        document.getElementById('ipDisplay').innerHTML = 'Your IP address: <strong>' + userIP + '</strong>';
+        document.getElementById('checkHost').value = userIP;
+        document.getElementById('checkHost').placeholder = userIP;
+      })
+      .catch(function() {
+        // Fallback to another IP service
+        fetch('https://api64.ipify.org?format=json')
+          .then(function(r) { return r.json(); })
+          .then(function(data) {
+            userIP = data.ip;
+            document.getElementById('ipDisplay').innerHTML = 'Your IP address: <strong>' + userIP + '</strong>';
+            document.getElementById('checkHost').value = userIP;
+          })
+          .catch(function() {
+            document.getElementById('ipDisplay').innerHTML = 'Could not detect your IP automatically. Please enter it manually.';
+          });
+      });
+
+    function setPort(port) {
+      document.getElementById('checkPort').value = port;
+    }
+
+    function checkPort() {
+      var host = document.getElementById('checkHost').value.trim();
+      var port = parseInt(document.getElementById('checkPort').value);
+
+      if (!host) {
+        alert('Please enter an IP address or domain');
+        return;
+      }
+      if (!port || port < 1 || port > 65535) {
+        alert('Please enter a valid port number (1-65535)');
+        return;
+      }
+
+      var result = document.getElementById('portResult');
+      var icon = document.getElementById('resultIcon');
+      var title = document.getElementById('resultTitle');
+      var detail = document.getElementById('resultDetail');
+
+      // Show checking state
+      result.className = 'port-result checking';
+      icon.innerHTML = '<div class="spinner"></div>';
+      title.textContent = 'Checking port ' + port + ' on ' + host + '...';
+      detail.textContent = 'This may take a few seconds.';
+      document.getElementById('checkBtn').disabled = true;
+
+      // Try WebSocket connection to check if port is open
+      // We try both ws:// and wss:// protocols
+      var protocols = ['wss://', 'ws://'];
+      var attempts = 0;
+      var timeout = 5000;
+      var resolved = false;
+
+      function tryConnect(protocolIndex) {
+        if (protocolIndex >= protocols.length || resolved) {
+          if (!resolved) {
+            showClosed(host, port);
+          }
+          return;
+        }
+
+        if (resolved) return;
+
+        var protocol = protocols[protocolIndex];
+        var url = protocol + host + ':' + port;
+
+        try {
+          var ws = new WebSocket(url);
+          var timer = setTimeout(function() {
+            if (!resolved) {
+              resolved = true;
+              try { ws.close(); } catch(e) {}
+              showClosed(host, port);
+            }
+          }, timeout);
+
+          ws.onopen = function() {
+            if (!resolved) {
+              resolved = true;
+              clearTimeout(timer);
+              try { ws.close(); } catch(e) {}
+              showOpen(host, port, protocol);
+            }
+          };
+
+          ws.onerror = function() {
+            clearTimeout(timer);
+            if (!resolved) {
+              attempts++;
+              tryConnect(protocolIndex + 1);
+            }
+          };
+        } catch(e) {
+          if (!resolved) {
+            tryConnect(protocolIndex + 1);
+          }
+        }
+      }
+
+      // Also try a fetch-based approach as fallback
+      // Fetch with no-cors mode will resolve if the port is open (even if response is opaque)
+      var fetchUrl = 'http' + (port === 443 ? 's' : '') + '://' + host + ':' + port + '/';
+      try {
+        fetch(fetchUrl, { mode: 'no-cors', signal: AbortSignal.timeout(timeout) })
+          .then(function() {
+            if (!resolved) {
+              resolved = true;
+              showOpen(host, port, 'http');
+            }
+          })
+          .catch(function() {
+            if (!resolved) {
+              tryConnect(0);
+            }
+          });
+      } catch(e) {
+        tryConnect(0);
+      }
+
+      // Fallback timeout
+      setTimeout(function() {
+        if (!resolved) {
+          resolved = true;
+          showClosed(host, port);
+        }
+      }, timeout + 1000);
+    }
+
+    function showOpen(host, port, protocol) {
+      var result = document.getElementById('portResult');
+      result.className = 'port-result open';
+      document.getElementById('resultIcon').textContent = '✅';
+      document.getElementById('resultTitle').textContent = 'Port ' + port + ' is OPEN';
+      document.getElementById('resultDetail').innerHTML =
+        'Port ' + port + ' on ' + host + ' is accepting connections.<br><br>' +
+        'Your port forwarding appears to be working correctly.<br>' +
+        'You should be able to access your device remotely on this port.';
+      document.getElementById('checkBtn').disabled = false;
+    }
+
+    function showClosed(host, port) {
+      var result = document.getElementById('portResult');
+      result.className = 'port-result closed';
+      document.getElementById('resultIcon').textContent = '❌';
+      document.getElementById('resultTitle').textContent = 'Port ' + port + ' is CLOSED or FILTERED';
+      document.getElementById('resultDetail').innerHTML =
+        'Port ' + port + ' on ' + host + ' is not accepting connections.<br><br>' +
+        '<strong>Possible causes:</strong><br>' +
+        '• Port forwarding is not set up in your router<br>' +
+        '• The device (NVR/DVR) is offline or not listening on this port<br>' +
+        '• A firewall is blocking the connection<br>' +
+        '• Your ISP may be blocking this port<br><br>' +
+        'Need help? Call us at <a href="tel:+15616932624" style="color: var(--primary);">(561) 693-2624</a>';
+      document.getElementById('checkBtn').disabled = false;
+    }
+
+    document.getElementById('checkBtn').addEventListener('click', checkPort);
+    document.getElementById('checkPort').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') checkPort();
+    });
+    document.getElementById('checkHost').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') checkPort();
+    });
+  </script>
+
+</body>
+</html>

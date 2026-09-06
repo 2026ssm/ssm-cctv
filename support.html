@@ -110,6 +110,12 @@
     </div>
   </header>
 
+<!-- Port Check Button Bar -->
+<div style="background: var(--primary-dark); padding: 0.4rem 0; text-align: center;">
+  <button onclick="openPortChecker()" style="background: none; border: 1px solid rgba(255,255,255,0.3); color: white; padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500; cursor: pointer; transition: all 0.2s; white-space: nowrap;">
+    🔌 Port Forwarding Check
+  </button>
+</div>
   <main>
 
 
@@ -179,47 +185,6 @@
         </div>
       </div>
     </section>
-
-    <!-- Port Forwarding Check -->
-    <section class="content-section" style="padding-top: 0;">
-      <div class="container">
-        <div style="max-width: 600px; margin: 0 auto; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 12px; padding: 2rem; text-align: center; color: white; box-shadow: 0 4px 20px rgba(0,85,164,0.2);">
-          <div style="width: 56px; height: 56px; margin: 0 auto 1rem; background: rgba(255,255,255,0.15); border-radius: 14px; display: flex; align-items: center; justify-content: center;">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c-1.657 0-3-4.03-3-9s1.343-9 3-9m0 18c1.657 0 3-4.03 3-9s-1.343-9-3-9m-9 9a9 9 0 0 1 9-9"></path></svg>
-          </div>
-          <h3 style="color: white; font-size: 1.25rem; margin-bottom: 0.5rem;">Port Forwarding Check</h3>
-          <p style="color: rgba(255,255,255,0.9); font-size: 0.9rem; margin-bottom: 1.25rem; line-height: 1.5;">Not sure if your port forwarding is working? Check if your NVR or DVR port is open and reachable from the internet.</p>
-          <button onclick="openPortChecker()" style="background: white; color: var(--primary); border: none; padding: 0.75rem 2rem; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: transform 0.2s; white-space: nowrap;">Check Your Port →</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Port Check Modal -->
-    <div id="portCheckModal" style="display:none; position:fixed; inset:0; z-index:100000; background:rgba(0,0,0,0.7); padding:1rem; overflow-y:auto;">
-      <div style="max-width:600px; margin:2rem auto; background:white; border-radius:16px; overflow:hidden; box-shadow:0 8px 40px rgba(0,0,0,0.3);">
-        <div style="display:flex; justify-content:space-between; align-items:center; padding:1rem 1.5rem; background:var(--primary); color:white;">
-          <h2 style="font-size:1.1rem; margin:0; color:white;">Port Forwarding Check</h2>
-          <button onclick="closePortChecker()" style="background:none; border:none; color:white; font-size:1.5rem; cursor:pointer; line-height:1; padding:0;">&times;</button>
-        </div>
-        <div style="padding:0;">
-          <iframe id="portCheckFrame" src="" style="width:100%; height:600px; border:none; display:block;"></iframe>
-        </div>
-      </div>
-    </div>
-
-    <script>
-    function openPortChecker() {
-      document.getElementById('portCheckFrame').src = 'port-check.html';
-      document.getElementById('portCheckModal').style.display = 'block';
-    }
-    function closePortChecker() {
-      document.getElementById('portCheckModal').style.display = 'none';
-      document.getElementById('portCheckFrame').src = '';
-    }
-    document.getElementById('portCheckModal').addEventListener('click', function(e) {
-      if (e.target === this) closePortChecker();
-    });
-    </script>
 
     <!-- Downloads Section -->
     <section class="content-section alt-bg">
@@ -424,5 +389,23 @@ setTimeout(function(){var b=document.getElementById('chat-custom-btn');if(b){b.c
 </div>
 
 
+
+<!-- Port Check Modal -->
+<div id="portCheckModal" style="display:none; position:fixed; inset:0; z-index:100000; background:rgba(0,0,0,0.7); padding:1rem; overflow-y:auto;">
+  <div style="max-width:600px; margin:2rem auto; background:white; border-radius:16px; overflow:hidden; box-shadow:0 8px 40px rgba(0,0,0,0.3);">
+    <div style="display:flex; justify-content:space-between; align-items:center; padding:1rem 1.5rem; background:var(--primary); color:white;">
+      <h2 style="font-size:1.1rem; margin:0; color:white;">Port Forwarding Check</h2>
+      <button onclick="closePortChecker()" style="background:none; border:none; color:white; font-size:1.5rem; cursor:pointer; line-height:1; padding:0;">&times;</button>
+    </div>
+    <div style="padding:0;">
+      <iframe id="portCheckFrame" src="" style="width:100%; height:600px; border:none; display:block;"></iframe>
+    </div>
+  </div>
+</div>
+<script>
+function openPortChecker(){document.getElementById('portCheckFrame').src='port-check.html';document.getElementById('portCheckModal').style.display='block';}
+function closePortChecker(){document.getElementById('portCheckModal').style.display='none';document.getElementById('portCheckFrame').src='';}
+document.addEventListener('click',function(e){if(e.target&&e.target.id==='portCheckModal')closePortChecker();});
+</script>
 </body>
 </html>

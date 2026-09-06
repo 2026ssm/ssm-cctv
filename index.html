@@ -232,6 +232,12 @@
     </div>
   </header>
 
+<!-- Port Check Button Bar -->
+<div style="background: var(--primary-dark); padding: 0.4rem 0; text-align: center;">
+  <button onclick="openPortChecker()" style="background: none; border: 1px solid rgba(255,255,255,0.3); color: white; padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500; cursor: pointer; transition: all 0.2s; white-space: nowrap;">
+    🔌 Port Forwarding Check
+  </button>
+</div>
   <main id="page">
 
     <!-- Hero Section -->
@@ -599,5 +605,23 @@ setTimeout(function(){var b=document.getElementById('chat-custom-btn');if(b){b.c
     statsObserver.observe(statsBanner);
   }
   </script>
+
+<!-- Port Check Modal -->
+<div id="portCheckModal" style="display:none; position:fixed; inset:0; z-index:100000; background:rgba(0,0,0,0.7); padding:1rem; overflow-y:auto;">
+  <div style="max-width:600px; margin:2rem auto; background:white; border-radius:16px; overflow:hidden; box-shadow:0 8px 40px rgba(0,0,0,0.3);">
+    <div style="display:flex; justify-content:space-between; align-items:center; padding:1rem 1.5rem; background:var(--primary); color:white;">
+      <h2 style="font-size:1.1rem; margin:0; color:white;">Port Forwarding Check</h2>
+      <button onclick="closePortChecker()" style="background:none; border:none; color:white; font-size:1.5rem; cursor:pointer; line-height:1; padding:0;">&times;</button>
+    </div>
+    <div style="padding:0;">
+      <iframe id="portCheckFrame" src="" style="width:100%; height:600px; border:none; display:block;"></iframe>
+    </div>
+  </div>
+</div>
+<script>
+function openPortChecker(){document.getElementById('portCheckFrame').src='port-check.html';document.getElementById('portCheckModal').style.display='block';}
+function closePortChecker(){document.getElementById('portCheckModal').style.display='none';document.getElementById('portCheckFrame').src='';}
+document.addEventListener('click',function(e){if(e.target&&e.target.id==='portCheckModal')closePortChecker();});
+</script>
 </body>
 </html>

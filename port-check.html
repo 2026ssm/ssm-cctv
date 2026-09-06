@@ -326,86 +326,21 @@
       detail.textContent = 'This may take a few seconds.';
       document.getElementById('checkBtn').disabled = true;
 
-      // Try WebSocket connection to check if port is open
-      // We try both ws:// and wss:// protocols
-      var protocols = ['wss://', 'ws://'];
-      var attempts = 0;
-      var timeout = 5000;
-      var resolved = false;
+      // Call Cloudflare Worker for real TCP port check
+      var workerUrl = 'https://port-checker.alexgonz00.workers.dev/?host=' + encodeURIComponent(host) + '&port=' + port;
 
-      function tryConnect(protocolIndex) {
-        if (protocolIndex >= protocols.length || resolved) {
-          if (!resolved) {
+      fetch(workerUrl)
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          if (data.status === 'open') {
+            showOpen(host, port);
+          } else {
             showClosed(host, port);
           }
-          return;
-        }
-
-        if (resolved) return;
-
-        var protocol = protocols[protocolIndex];
-        var url = protocol + host + ':' + port;
-
-        try {
-          var ws = new WebSocket(url);
-          var timer = setTimeout(function() {
-            if (!resolved) {
-              resolved = true;
-              try { ws.close(); } catch(e) {}
-              showClosed(host, port);
-            }
-          }, timeout);
-
-          ws.onopen = function() {
-            if (!resolved) {
-              resolved = true;
-              clearTimeout(timer);
-              try { ws.close(); } catch(e) {}
-              showOpen(host, port, protocol);
-            }
-          };
-
-          ws.onerror = function() {
-            clearTimeout(timer);
-            if (!resolved) {
-              attempts++;
-              tryConnect(protocolIndex + 1);
-            }
-          };
-        } catch(e) {
-          if (!resolved) {
-            tryConnect(protocolIndex + 1);
-          }
-        }
-      }
-
-      // Also try a fetch-based approach as fallback
-      // Fetch with no-cors mode will resolve if the port is open (even if response is opaque)
-      var fetchUrl = 'http' + (port === 443 ? 's' : '') + '://' + host + ':' + port + '/';
-      try {
-        fetch(fetchUrl, { mode: 'no-cors', signal: AbortSignal.timeout(timeout) })
-          .then(function() {
-            if (!resolved) {
-              resolved = true;
-              showOpen(host, port, 'http');
-            }
-          })
-          .catch(function() {
-            if (!resolved) {
-              tryConnect(0);
-            }
-          });
-      } catch(e) {
-        tryConnect(0);
-      }
-
-      // Fallback timeout
-      setTimeout(function() {
-        if (!resolved) {
-          resolved = true;
+        })
+        .catch(function() {
           showClosed(host, port);
-        }
-      }, timeout + 1000);
+        });
     }
 
     function showOpen(host, port, protocol) {

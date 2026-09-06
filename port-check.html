@@ -424,15 +424,8 @@
       var result = document.getElementById('portResult');
       result.className = 'port-result closed';
       document.getElementById('resultIcon').textContent = '❌';
-      document.getElementById('resultTitle').textContent = 'Port ' + port + ' is CLOSED or FILTERED';
-      document.getElementById('resultDetail').innerHTML =
-        'Port ' + port + ' on ' + host + ' is not accepting connections.<br><br>' +
-        '<strong>Possible causes:</strong><br>' +
-        '• Port forwarding is not set up in your router<br>' +
-        '• The device (NVR/DVR) is offline or not listening on this port<br>' +
-        '• A firewall is blocking the connection<br>' +
-        '• Your ISP may be blocking this port<br><br>' +
-        'Need help? Call us at <a href="tel:+15616932624" style="color: var(--primary);">(561) 693-2624</a>';
+      document.getElementById('resultTitle').textContent = 'Port ' + port + ' is CLOSED';
+      document.getElementById('resultDetail').innerHTML = '';
       document.getElementById('checkBtn').disabled = false;
     }
 

@@ -50,6 +50,28 @@ document.addEventListener('DOMContentLoaded', function() {
       const formData = new FormData(contactForm);
       const formId = contactForm.id;
 
+      // Format date and time fields for readability (video request form)
+      if (contactForm.querySelector('[name="camera_number"]')) {
+        const dateInput = contactForm.querySelector('[name="date"]');
+        const startTimeInput = contactForm.querySelector('[name="start_time"]');
+        const endTimeInput = contactForm.querySelector('[name="end_time"]');
+
+        if (dateInput && dateInput.value) {
+          // Convert 2026-11-20 -> November 20, 2026
+          const d = new Date(dateInput.value + 'T00:00:00');
+          const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+          formData.set('date', months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear());
+        }
+
+        if (startTimeInput && startTimeInput.value) {
+          // Convert 17:00 -> 5:00 PM
+          formData.set('start_time', formatTime(startTimeInput.value));
+        }
+        if (endTimeInput && endTimeInput.value) {
+          formData.set('end_time', formatTime(endTimeInput.value));
+        }
+      }
+
       // Determine required fields based on which form this is
       // The video-request form shares the same id 'contact-form'
       // but has different fields than the regular contact form
@@ -127,6 +149,18 @@ document.addEventListener('DOMContentLoaded', function() {
   // --- Email validation helper ---
   function isValidEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  // --- Time format helper ---
+  // Converts 24h "17:00" to 12h "5:00 PM"
+  function formatTime(time24) {
+    var parts = time24.split(':');
+    var hours = parseInt(parts[0], 10);
+    var minutes = parts[1];
+    var period = hours >= 12 ? 'PM' : 'AM';
+    var hours12 = hours % 12;
+    if (hours12 === 0) hours12 = 12;
+    return hours12 + ':' + minutes + ' ' + period;
   }
 
   // --- Form message display ---

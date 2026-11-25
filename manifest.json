@@ -1,0 +1,21 @@
+{
+  "name": "Security Systems & More",
+  "short_name": "SSM",
+  "description": "Professional CCTV monitoring, security camera installation, and access control for Florida homes and businesses.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000080",
+  "theme_color": "#000080",
+  "icons": [
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ]
+}

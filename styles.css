@@ -178,6 +178,7 @@ p:last-child { margin-bottom: 0; }
   align-items: center;
   justify-content: space-between;
   height: 96px;
+  gap: 1rem;
 }
 
 .logo {
@@ -185,6 +186,7 @@ p:last-child { margin-bottom: 0; }
   align-items: center;
   gap: 0.5rem;
   text-decoration: none;
+  flex-shrink: 0;
 }
 
 .logo-img {
@@ -208,14 +210,17 @@ p:last-child { margin-bottom: 0; }
   display: flex;
   align-items: center;
   gap: 0.25rem;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .nav-link {
-  padding: 0.5rem 0.875rem;
+  padding: 0.5rem 0.75rem;
   font-weight: 500;
   color: var(--gray-700);
   border-radius: var(--radius);
   transition: all var(--transition);
+  white-space: nowrap;
 }
 
 .nav-link:hover,
@@ -347,6 +352,8 @@ p:last-child { margin-bottom: 0; }
   background: none;
   padding: 0;
   border-radius: 0;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .hero-heading {
@@ -367,6 +374,7 @@ p:last-child { margin-bottom: 0; }
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  justify-content: center;
 }
 
 /* --- Trust Bar --- */

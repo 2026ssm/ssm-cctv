@@ -48,14 +48,24 @@ document.addEventListener('DOMContentLoaded', function() {
       e.preventDefault();
 
       const formData = new FormData(contactForm);
-      // Video request form has different fields
-    var required;
-    if (formId === 'contact-form') {
-      required = ['first-name', 'email', 'subject', 'message'];
-    } else {
-      // video-request form uses: name, email, camera_number, date, time, message
-      required = ['name', 'email', 'camera_number', 'date', 'time', 'message'];
-    }
+      const formId = contactForm.id;
+
+      // Determine required fields based on which form this is
+      // The video-request form shares the same id 'contact-form'
+      // but has different fields than the regular contact form
+      // Check which fields exist to determine validation
+      var required;
+
+      if (contactForm.querySelector('[name="camera_number"]')) {
+        // Video request form fields
+        required = ['first_name', 'last_name', 'email', 'camera_number', 'date', 'start_time', 'end_time', 'message'];
+      } else if (contactForm.querySelector('[name="subject"]')) {
+        // Regular contact form fields
+        required = ['first_name', 'last_name', 'email', 'subject', 'message'];
+      } else {
+        // Fallback — validate the most common fields
+        required = ['first_name', 'email', 'message'];
+      }
 
       // Clear previous errors
       contactForm.querySelectorAll('.form-error').forEach(function(el) {
@@ -85,18 +95,32 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
 
-      // Simulate submission
+      // Submit to Formspree via fetch
       const submitBtn = contactForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.textContent;
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending...';
 
-      setTimeout(function() {
-        showFormMessage(contactForm, 'Thank you! Your message has been sent. We\'ll be in touch within one business day.', 'success');
-        contactForm.reset();
+      fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(function(response) {
+        if (response.ok) {
+          showFormMessage(contactForm, 'Thank you! Your request has been submitted. We\'ll be in touch within one business day.', 'success');
+          contactForm.reset();
+        } else {
+          throw new Error('Form submission failed');
+        }
+      })
+      .catch(function(error) {
+        showFormMessage(contactForm, 'Sorry, there was an error submitting your request. Please try again or call us at (561) 693-2624.', 'error');
+      })
+      .finally(function() {
         submitBtn.disabled = false;
         submitBtn.textContent = originalText;
-      }, 1200);
+      });
     });
   }
 

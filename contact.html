@@ -39,7 +39,7 @@
   "image": "https://ssmcctv.com/logo.png",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "6215 Georgia Ave., Suite i",
+    "streetAddress": "6215 Georgia Ave., Suite I",
     "addressLocality": "West Palm Beach",
     "addressRegion": "FL",
     "postalCode": "33405",
@@ -198,7 +198,7 @@
                 <div class="contact-info-icon">📍</div>
                 <div>
                   <strong>Address</strong><br>
-                  6215 Georgia Ave., Suite i<br>
+                  6215 Georgia Ave., Suite I<br>
                   West Palm Beach, FL 33405
                 </div>
               </div>
@@ -371,28 +371,3 @@ document.addEventListener('click',function(e){if(e.target&&e.target.id==='portCh
 </script>
 </body>
 </html>
-
-<script>
-const form = document.getElementById("contact-form");
-const status = document.getElementById("form-status");
-
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  status.innerHTML = "Sending...";
-  const data = new FormData(form);
-  fetch(form.action, {
-    method: "POST",
-    body: data,
-    headers: { Accept: "application/json" }
-  }).then(response => {
-    if (response.ok) {
-      status.innerHTML = "<p style='color: green;'>Thank you! Your message has been sent.</p>";
-      form.reset();
-    } else {
-      status.innerHTML = "<p style='color: red;'>Something went wrong. Please try again.</p>";
-    }
-  }).catch(error => {
-    status.innerHTML = "<p style='color: red;'>Something went wrong. Please try again.</p>";
-  });
-});
-</script>

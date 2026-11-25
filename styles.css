@@ -345,6 +345,7 @@ p:last-child { margin-bottom: 0; }
   position: relative;
   z-index: 1;
   padding: 1.5rem 0;
+  width: 100%;
 }
 
 .hero-content {
